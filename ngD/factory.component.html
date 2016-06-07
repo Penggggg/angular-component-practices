@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body{
+			padding: 0;margin: 0;
+		}
+		.toast{
+			z-index: 15;
+			position: fixed;
+			width: 300px;height: 300px;
+			bottom: 30%;left: 50%;
+			transition: all ease 0.4s;-webkit-transition: all ease 0.4s;
+			transform: translate3d(-50%,0,0);-webkit-transform: translate3d(-50%,0,0);	
+			background-color: rgba(0,0,0,0.2)
+		}
+		.toast.hide{
+			opacity: 0;filter: alpha(opacity=0);
+		}
+		.closeBtn{
+			text-align: right;
+			color: #000;font-size: 20px;
+			margin-bottom: 0;
+		}
+		.showText{
+			text-align: center;
+			color: #fff;font-size: 20px;
+		}
+		.bg{
+			z-index: 10;
+			position: fixed;
+			top: 0;left: 0;
+		}
+	</style>
+</head>
+<body ng-controller="e">
+
+	<button ng-click="get1()">测试1</button>
+	<button ng-click="get2()">测试2</button>
+	
+	
+<script src="bower_components/angular/angular.min.js"></script>
+<script src="factory.component.js"></script>
+</body>
+</html>
