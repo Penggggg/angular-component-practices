@@ -11,3 +11,4 @@
 * 并发性。这里收到es6的启发。在factory内使用了构造函数，来区分不同的实例。当然，factory接口返回的类型要根据需求来定：仅仅是一个promise?还是返回一整个组件的实例
 * 数据驱动。factory内部我使用了this.scope = $rootScope.$new()。并把每个实例的模板和作用域进行绑定$compile(html())(scope)。感谢毛总，这招真是方便。我们能够真正使用到angular的精髓：用数据来驱动我们的视图了
 * 交互。该demo因为需要与用户进行交互，因此返回了一个promise给调用者。当然实际要看情况。
+* 作用域。由于该组件并不常常需要被调用，因此一旦组件'close'(从视图上消失)，就scope.$destroy()、instance.remove()
