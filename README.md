@@ -19,3 +19,8 @@
 * 并发性。要求更高，稍复杂。因此返回组件的实例，让开发者可用调用组件内部的方法(open/close/...)。同时，鉴于需求特殊性，在open()方法处我传入了$event作为UI参数
 * 作用域。由于是隐藏地常驻与视图，因此只当路由切换时才注销实例。scope.$watch('$stateChangeSuccess', function(){scope.destroy()})
 * 组件实例。赋值给作用域的变量 $scope.instance = Mypop.init()
+
+##### 组件类型4：实例之间存在某种关系、不常驻于视图，动态插入、只有视觉交互、有UI的一类组件(类似于ant design的Notification)
+* factory.component.3.html
+* 对比。与上类组件对比，组件的每个实例之间需要存在某种队列关系，具体操作方法请参考上面的例子。
+* 实例关系。如何维护实例之间的关系？笔者比较笨的方法是开启另一个factory实例，存放一个实例数据，来维护实例之间的关系var _sl = scope.list = []。然后该factory具备操作实例队列的一些方法 _sl.push(token)或者 _sl.shift()。同时每个实例都会监听这个实例队列 _s.$watchCollection('instanceList', function(){...})
